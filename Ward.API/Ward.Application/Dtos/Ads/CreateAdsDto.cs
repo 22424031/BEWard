@@ -26,6 +26,6 @@ namespace Ward.Application.Dtos.Ads
         public decimal Lat { get; set; }
         public decimal Longt { get; set; }
         public string Status { get; set; }
-        public string IsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }
