@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Newtonsoft.Json;
 using Ward.Application.Dtos.Ads;
+using Ward.Application.Dtos.Reports;
 using Ward.Domain;
 
 namespace Ward.Application.Profiles
@@ -30,6 +31,22 @@ namespace Ward.Application.Profiles
                 }
             });
             CreateMap<Ads, AdsDto>().ReverseMap();
+
+            //ReportWarm
+            CreateMap<CreateReportWarmDto, ReportWarm>().ForMember(x => x.UrlString, opt => opt.MapFrom(y => y.UrlString)).AfterMap((src, des) =>
+            {
+                if (src.UrlString is not null && src.UrlString.Count > 0)
+                {
+                    des.UrlStringJson = JsonConvert.SerializeObject(src.UrlString);
+                }
+            });
+            CreateMap<ReportWarm, ReportWarmDto>().ForMember(x => x.UrlString, opt => opt.MapFrom(y => y.UrlStringJson)).AfterMap((src, des) =>
+            {
+                if (!string.IsNullOrWhiteSpace(src.UrlStringJson ) )
+                {
+                    des.UrlString = JsonConvert.DeserializeObject<List<string>>(src.UrlStringJson);
+                }
+            });
         }
     }
 }
