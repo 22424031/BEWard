@@ -21,7 +21,8 @@ namespace Ward.Application.Feature.ReportWarms.Handlers
             BaseResponse<bool> rs = new();
             try
             {
-                var data = await _reportWarmRepository.Add(_mapper.Map<ReportWarm>(request.CreateReportWarmDto));
+                ReportWarm report = _mapper.Map<ReportWarm>(request.CreateReportWarmDto);
+                var data = await _reportWarmRepository.Add(report);
                 await _reportWarmRepository.SaveAsync();
             }
             catch(Exception ex)

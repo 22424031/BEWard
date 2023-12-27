@@ -11,6 +11,6 @@ namespace Ward.Application.Feature.ReportWarms.Requests
 {
     public class AddReportWarmRequest : IRequest<BaseResponse<bool>>
     {
-        public CreateReportWarmDto CreateReportWarmDto { get; set; }
+        public CreateReportWarmDto CreateReportWarmDto { get; set; } = new();
     }
 }
