@@ -23,6 +23,10 @@ namespace Ward.Persistent.Repositories
         {
             await _dbcontext.SaveChangeAsync("system");
         }
+        public async Task<Ads> GetAdsById(int id)
+        {
+            return await _dbcontext.Ads.FirstOrDefaultAsync(x => x.AdsID == id);
+        }
         public async Task<List<Ads>> GetByWardListAsync(string wardName)
         {
            return await _dbcontext.Ads.Where(x => x.Ward.ToLower() == wardName.ToLower() && x.IsActive == true).ToListAsync();

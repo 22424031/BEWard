@@ -2,9 +2,11 @@
 
 
 using Microsoft.EntityFrameworkCore;
+using UserMapService;
 using Ward.Application;
 using Ward.Persistent;
 using Ward.Persistent;
+using WardService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.ConfigurePersistenceRegister(builder.Configuration);
 builder.Services.ConfigurateApplicationService();
-//builder.Services.ConfigWardService(builder.Configuration);
+builder.Services.ConfigWardService(builder.Configuration);
+builder.Services.ConfigUserMapService(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

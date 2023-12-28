@@ -5,6 +5,7 @@ using Ward.Application.Contracts;
 using Ward.Persistent.Repositories;
 using Ward.Persistent;
 using Ward.Application.Contracts.Ads;
+using Ward.Application.Contracts.ReportWarm;
 
 namespace Ward.Persistent
 {
@@ -21,7 +22,7 @@ namespace Ward.Persistent
             });
             services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
             services.AddScoped<IAdsRepository,AdsRepository>();
-            
+            services.AddScoped<IReportWarmRepository, ReportWarmRepository>();
             return services;
         }
 

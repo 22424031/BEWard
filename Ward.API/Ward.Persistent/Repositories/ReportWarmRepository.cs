@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Ward.Application.Contracts.ReportWarm;
+using Ward.Domain;
+
+namespace Ward.Persistent.Repositories
+{
+    public class ReportWarmRepository : GenericRepository<ReportWarm>, IReportWarmRepository
+    {
+        private readonly WardMapContext _context;
+        public ReportWarmRepository(WardMapContext dbContext) : base(dbContext)
+        {
+            _context = dbContext;
+        }
+        public async Task SaveAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+    }
+}

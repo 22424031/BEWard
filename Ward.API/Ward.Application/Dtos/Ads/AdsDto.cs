@@ -29,5 +29,6 @@ namespace Ward.Application.Dtos.Ads
         public decimal Longt { get; set; }
         public string Status { get; set; }
         public bool IsActive { get; set; }
+        public string? Feedback { get; set; }
     }
 }

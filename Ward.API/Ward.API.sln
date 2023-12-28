@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ward.Persistent", "Ward.Per
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WardService", "WardService\WardService.csproj", "{B0D7A87B-3853-4B6E-98D3-588DF31DD284}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{995E9CD4-8002-4A7F-B306-243548AEED28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMapService", "UserMapService\UserMapService.csproj", "{F30F3B72-A46B-4286-AEB4-D6EA67CC989F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,9 +43,17 @@ Global
 		{B0D7A87B-3853-4B6E-98D3-588DF31DD284}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0D7A87B-3853-4B6E-98D3-588DF31DD284}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0D7A87B-3853-4B6E-98D3-588DF31DD284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F30F3B72-A46B-4286-AEB4-D6EA67CC989F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F30F3B72-A46B-4286-AEB4-D6EA67CC989F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F30F3B72-A46B-4286-AEB4-D6EA67CC989F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F30F3B72-A46B-4286-AEB4-D6EA67CC989F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0D7A87B-3853-4B6E-98D3-588DF31DD284} = {995E9CD4-8002-4A7F-B306-243548AEED28}
+		{F30F3B72-A46B-4286-AEB4-D6EA67CC989F} = {995E9CD4-8002-4A7F-B306-243548AEED28}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE8198A3-5010-4F62-94EC-FEBAC7677D3E}

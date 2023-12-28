@@ -16,5 +16,6 @@ namespace Ward.Application.Contracts.Ads
 
         Task<List<Domain.Ads>> GetByWardStatusListAsync(string wardName, string status);
         Task<List<Domain.Ads>> GetByDistrictStatusListAsync(string districtName, string status);
+        Task<Domain.Ads> GetAdsById(int id);
     }
 }
