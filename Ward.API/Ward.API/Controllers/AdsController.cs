@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Ward.Application.Dtos.Common;
 using Ward.Application.Dtos.Ads;
 using Ward.Application.Feature.Ads.Requests;
+using Ward.Application.Dtos;
+using Ward.Application.Constants;
 
 namespace Ward.API.Controllers
 {
@@ -32,7 +34,6 @@ namespace Ward.API.Controllers
 
         }
       
-       
         /// <summary>
         /// Get ADs by ADSID
         /// </summary>
@@ -47,6 +48,28 @@ namespace Ward.API.Controllers
             BaseResponse<AdsDto> rs = new();
             rs = await _mediator.Send(new GetAdsByIDRequest { adsID = id });
             if (rs.Data is null) return Ok(rs);
+            return rs;
+        }
+        /// <summary>
+        /// Update status : Đang xử lý, Đã xử lý xong, từ chối
+        /// </summary>
+        /// <param name="statusFeedbackDto"></param>
+        /// <returns></returns>
+        [HttpPost("UpdateStatus")]
+        public async Task<ActionResult<BaseResponse< bool>>> UpdateStatus(StatusFeedbackDto statusFeedbackDto)
+        {
+            BaseResponse<bool> rs = new();
+            if(statusFeedbackDto.Status.ToLower() != StatusFeedbackConst.TuChoi.ToLower() 
+                && statusFeedbackDto.Status.ToLower() != StatusFeedbackConst.DangXuLy.ToLower()
+              &&  statusFeedbackDto.Status.ToLower() != StatusFeedbackConst.DaXuLy.ToLower()
+                )
+            {
+                rs.IsError = true;
+                rs.ErrorMessage = "Status required is Đang xử lý, Đã xử lý xong, từ chối";
+                rs.Status = 400;
+                return rs;
+            }
+             rs = await _mediator.Send(new UpdateAdsStatusRequest { StatusFeedback = statusFeedbackDto });
             return rs;
         }
     }

@@ -13,5 +13,6 @@ namespace Ward.Application.Constants
         public const string ViPham = "Vi Phạm";
         public const string DangXetDuyet = "Đang xét duyệt";
         public const string ChuaXetDuyet = "Chưa xét duyệt";
+       
     }
 }

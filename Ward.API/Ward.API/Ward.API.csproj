@@ -18,8 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UserMapService\UserMapService.csproj" />
     <ProjectReference Include="..\Ward.Application\Ward.Application.csproj" />
     <ProjectReference Include="..\Ward.Persistent\Ward.Persistent.csproj" />
+    <ProjectReference Include="..\WardService\WardService.csproj" />
   </ItemGroup>
 
 </Project>

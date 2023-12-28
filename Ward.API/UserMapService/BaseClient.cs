@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
 
-namespace WardService
+namespace UserMapService
 {
     public abstract class BaseClient
     {
@@ -17,7 +17,7 @@ namespace WardService
         public BaseClient(IConfiguration configuration)
         {
             _configuration = configuration;
-            url = _configuration["client:wardurl"];
+            url = _configuration["client:UserMapurl"];
         }
         protected virtual async Task<BaseResponse<bool>> PostAsync<T>(string path,T data)
         {
