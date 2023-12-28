@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Ward.Persistent;
 
@@ -10,9 +11,10 @@ using Ward.Persistent;
 namespace Ward.Persistent.Migrations
 {
     [DbContext(typeof(WardMapContext))]
-    partial class WardMapContextModelSnapshot : ModelSnapshot
+    [Migration("20231228160254_serCreatedBy_canNull")]
+    partial class serCreatedBy_canNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -16,6 +16,12 @@ namespace Ward.Application.Feature.ReportWarms.Handlers
     {
         private readonly IReportWarmRepository _reportWarmRepository;
         private readonly IMapper _mapper;
+        public AddReportWarmHandler(IReportWarmRepository reportWarmRepository, IMapper mapper)
+        {
+            _reportWarmRepository = reportWarmRepository;
+            _mapper = mapper;
+        }
+
         public async Task<BaseResponse<bool>> Handle(AddReportWarmRequest request, CancellationToken cancellationToken)
         {
             BaseResponse<bool> rs = new();

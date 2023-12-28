@@ -22,5 +22,9 @@ namespace UserMapService
         {
             return await this.PostAsync("api/SubWard/StatusFeedback", statusFeedbackDto);
         }
+        public async Task<BaseResponse<bool>> UpdateStatusReportWarm(StatusFeedbackDto statusFeedbackDto)
+        {
+            return await this.PostAsync("api/SubWard/StatusReportWarmFeedback", statusFeedbackDto);
+        }
     }
 }

@@ -5,38 +5,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ward.Application.Contracts.Ads;
+using Ward.Application.Contracts.ReportWarm;
 using Ward.Application.Contracts.UserMap;
 using Ward.Application.Dtos.Common;
 using Ward.Application.Feature.Ads.Requests;
+using Ward.Application.Feature.ReportWarms.Requests;
 
-namespace Ward.Application.Feature.Ads.Handlers
+namespace Ward.Application.Feature.ReportWarms.Handlers
 {
-    public class UpdateAdsStatusHandler : IRequestHandler<UpdateAdsStatusRequest, BaseResponse<bool>>
+    public class UpdateReportWarmStatusHandler : IRequestHandler<UpdateReportWarmStatusRequest, BaseResponse<bool>>
     {
-        private readonly IAdsRepository _adsRepository;
+        private readonly IReportWarmRepository _repository;
         private readonly IUserMapAds _userMapAds;
-        public UpdateAdsStatusHandler(IAdsRepository adsRepository, IUserMapAds userMapAds) {
-                _adsRepository = adsRepository;
+        public UpdateReportWarmStatusHandler(IReportWarmRepository repository, IUserMapAds userMapAds) {
+                _repository = repository;
             _userMapAds = userMapAds;
         }
 
-        public async Task<BaseResponse<bool>> Handle(UpdateAdsStatusRequest request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<bool>> Handle(UpdateReportWarmStatusRequest request, CancellationToken cancellationToken)
         {
             BaseResponse<bool> rs = new();
             try
             {
-                var data = await _adsRepository.GetAdsById(request.StatusFeedback.Id);
+                var data = await _repository.GetById(request.StatusFeedback.Id);
                 if(data == null)
                 {
                     rs.Status = 204;
-                    rs.ErrorMessage = "AdsID not found in database";
+                    rs.ErrorMessage = "ReportWarmID not found in database";
                     
                 }
                 data.Status = request.StatusFeedback.Status;
                 data.Feedback = request.StatusFeedback.Comment;
-                await _adsRepository.Update(data);
-                await _adsRepository.SaveChange();
-                await _userMapAds.UpdateStatusUserMap(request.StatusFeedback);
+                await _repository.Update(data);
+                await _repository.SaveAsync();
+                await _userMapAds.UpdateStatusReportWarm(request.StatusFeedback);
             }
             catch (Exception ex)
             {

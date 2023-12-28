@@ -17,5 +17,7 @@ namespace Ward.Application.Dtos.Reports
         public List<string> UrlString { get; set; }
         public int AdsID { get; set; }
         public string Status { get; set; }
+        public string? Feedback { get; set; }
+        public bool IsActive { get; set; }
     }
 }
