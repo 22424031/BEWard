@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,10 @@ namespace Ward.Persistent.Repositories
         public async Task SaveAsync()
         {
             await _context.SaveChangesAsync();
+        }
+        public async Task<ReportWarm> GetById(int id)
+        {
+            return await _context.ReportWarm.FirstOrDefaultAsync(x => x.ReportWarmID == id);
         }
     }
 }

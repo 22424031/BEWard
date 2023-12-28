@@ -22,6 +22,8 @@ namespace Ward.Persistent.Configtration
             builder.Property(x => x.AdsID).IsRequired();
             builder.Property(x => x.Email).IsRequired().HasColumnType("varchar(128)");
             builder.Property(x => x.PhoneNumber).IsRequired().HasColumnType("varchar(15)");
+            builder.Property(x => x.Status).IsRequired();
+            builder.Property(x => x.Feedback).HasMaxLength(300);
         }
     }
 }

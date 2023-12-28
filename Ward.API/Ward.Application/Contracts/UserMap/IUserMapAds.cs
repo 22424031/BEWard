@@ -11,5 +11,6 @@ namespace Ward.Application.Contracts.UserMap
     public interface IUserMapAds
     {
         Task<BaseResponse<bool>> UpdateStatusUserMap(StatusFeedbackDto statusFeedbackDto);
+        Task<BaseResponse<bool>> UpdateStatusReportWarm(StatusFeedbackDto statusFeedbackDto);
     }
 }

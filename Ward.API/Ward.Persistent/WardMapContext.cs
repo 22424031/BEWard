@@ -20,6 +20,6 @@ namespace Ward.Persistent
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(WardMapContext).Assembly);
         }
         public DbSet<Ads> Ads { get; set; }
-
+        public DbSet<ReportWarm> ReportWarm { get; set; }
     }
 }

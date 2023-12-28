@@ -33,12 +33,11 @@ namespace Ward.Application.Profiles
             CreateMap<Ads, AdsDto>().ReverseMap();
 
             //ReportWarm
-            CreateMap<CreateReportWarmDto, ReportWarm>().ForMember(x => x.UrlString, opt => opt.MapFrom(y => y.UrlString)).AfterMap((src, des) =>
+            CreateMap<CreateReportWarmDto, ReportWarm>().ForMember(x => x.UrlStringJson, opt => opt.MapFrom(y => y.UrlString)).AfterMap((src, des) =>
             {
-                if (src.UrlString is not null && src.UrlString.Count > 0)
-                {
+               
                     des.UrlStringJson = JsonConvert.SerializeObject(src.UrlString);
-                }
+                
             });
             CreateMap<ReportWarm, ReportWarmDto>().ForMember(x => x.UrlString, opt => opt.MapFrom(y => y.UrlStringJson)).AfterMap((src, des) =>
             {
