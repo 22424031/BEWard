@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MailService\MailService.csproj" />
     <ProjectReference Include="..\UserMapService\UserMapService.csproj" />
     <ProjectReference Include="..\Ward.Application\Ward.Application.csproj" />
     <ProjectReference Include="..\Ward.Persistent\Ward.Persistent.csproj" />

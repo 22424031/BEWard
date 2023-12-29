@@ -1,6 +1,7 @@
 
 
 
+using MailService;
 using Microsoft.EntityFrameworkCore;
 using UserMapService;
 using Ward.Application;
@@ -17,6 +18,7 @@ builder.Services.ConfigurePersistenceRegister(builder.Configuration);
 builder.Services.ConfigurateApplicationService();
 builder.Services.ConfigWardService(builder.Configuration);
 builder.Services.ConfigUserMapService(builder.Configuration);
+builder.Services.ConfigMailService(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ward.Application.Contracts.Ads;
+using Ward.Application.Contracts.Mail;
 using Ward.Application.Contracts.ReportWarm;
 using Ward.Application.Contracts.UserMap;
 using Ward.Application.Dtos.Common;
@@ -17,9 +18,11 @@ namespace Ward.Application.Feature.ReportWarms.Handlers
     {
         private readonly IReportWarmRepository _repository;
         private readonly IUserMapAds _userMapAds;
-        public UpdateReportWarmStatusHandler(IReportWarmRepository repository, IUserMapAds userMapAds) {
-                _repository = repository;
+        private readonly ISendMail _sendMail;
+        public UpdateReportWarmStatusHandler(IReportWarmRepository repository, IUserMapAds userMapAds, ISendMail sendMail) {
+            _repository = repository;
             _userMapAds = userMapAds;
+            _sendMail = sendMail;
         }
 
         public async Task<BaseResponse<bool>> Handle(UpdateReportWarmStatusRequest request, CancellationToken cancellationToken)
@@ -39,6 +42,7 @@ namespace Ward.Application.Feature.ReportWarms.Handlers
                 await _repository.Update(data);
                 await _repository.SaveAsync();
                 await _userMapAds.UpdateStatusReportWarm(request.StatusFeedback);
+                await _sendMail.SendMailTo(data.Email, $"Report của quý vị {data.Status}");
             }
             catch (Exception ex)
             {
