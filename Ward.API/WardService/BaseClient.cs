@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
 
-namespace WardService
+namespace GOVInforService
 {
     public abstract class BaseClient
     {
         private readonly IConfiguration _configuration;
-        private string url = "";
+       
         public BaseClient(IConfiguration configuration)
         {
             _configuration = configuration;
-            url = _configuration["client:wardurl"];
+            
         }
         protected virtual async Task<BaseResponse<bool>> PostAsync<T>(string path,T data)
         {
@@ -25,6 +25,7 @@ namespace WardService
             string dataJson = JsonConvert.SerializeObject(data);
             var content = new StringContent(dataJson);
             HttpClient client = new HttpClient();
+            string url = _configuration["client:govinforurl"];
             HttpResponseMessage rs = await client.PostAsJsonAsync<T>($"{url}/{path}", data);
             if (rs.IsSuccessStatusCode)
             {

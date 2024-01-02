@@ -42,7 +42,7 @@ namespace Ward.Application.Feature.ReportWarms.Handlers
                 await _repository.Update(data);
                 await _repository.SaveAsync();
                 await _userMapAds.UpdateStatusReportWarm(request.StatusFeedback);
-                await _sendMail.SendMailTo(data.Email, $"Report của quý vị {data.Status}");
+                await _sendMail.SendMailTo(data.Email, $"Báo cáo của quý vị {data.Status}");
             }
             catch (Exception ex)
             {

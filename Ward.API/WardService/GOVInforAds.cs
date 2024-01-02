@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 using Ward.Application.Contracts.Ward;
 using Ward.Application.Dtos.Ads;
 
-namespace WardService
+namespace GOVInforService
 {
-    public class WardAds : BaseClient,IWardAds
+    public class GOVInforAds : BaseClient,IGovInforAds
     {
-        public WardAds(IConfiguration configuration) : base(configuration)
+        public GOVInforAds(IConfiguration configuration) : base(configuration)
         {
         }
 
-        public async Task<BaseResponse<bool>> PushToWard(AdsDto dto)
+        public async Task<BaseResponse<bool>> PushToGovInfor(PushAdsGovInforDto dto)
         {
-            return await this.PostAsync("api/ward/ReceiveAds",dto);
+            return await this.PostAsync("api/Ads/ReceiveAds",dto);
         }
     }
 }

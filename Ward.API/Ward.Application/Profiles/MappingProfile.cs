@@ -31,7 +31,7 @@ namespace Ward.Application.Profiles
                 }
             });
             CreateMap<Ads, AdsDto>().ReverseMap();
-
+            CreateMap<Ads, PushAdsGovInforDto>().ReverseMap();
             //ReportWarm
             CreateMap<CreateReportWarmDto, ReportWarm>().ForMember(x => x.UrlStringJson, opt => opt.MapFrom(y => y.UrlString)).AfterMap((src, des) =>
             {

@@ -8,8 +8,8 @@ using Ward.Application.Dtos.Ads;
 
 namespace Ward.Application.Contracts.Ward
 {
-    public interface IWardAds
+    public interface IGovInforAds
     {
-        Task<BaseResponse<bool>> PushToWard(AdsDto dto);
+        Task<BaseResponse<bool>> PushToGovInfor(PushAdsGovInforDto dto);
     }
 }

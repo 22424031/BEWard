@@ -33,7 +33,7 @@ namespace Ward.API.Controllers
             return rs;
 
         }
-      
+
         /// <summary>
         /// Get ADs by ADSID
         /// </summary>
@@ -56,12 +56,12 @@ namespace Ward.API.Controllers
         /// <param name="statusFeedbackDto"></param>
         /// <returns></returns>
         [HttpPost("UpdateStatus")]
-        public async Task<ActionResult<BaseResponse< bool>>> UpdateStatus(StatusFeedbackDto statusFeedbackDto)
+        public async Task<ActionResult<BaseResponse<bool>>> UpdateStatus(StatusFeedbackDto statusFeedbackDto)
         {
             BaseResponse<bool> rs = new();
-            if(statusFeedbackDto.Status.ToLower() != StatusFeedbackConst.TuChoi.ToLower() 
+            if (statusFeedbackDto.Status.ToLower() != StatusFeedbackConst.TuChoi.ToLower()
                 && statusFeedbackDto.Status.ToLower() != StatusFeedbackConst.DangXuLy.ToLower()
-              &&  statusFeedbackDto.Status.ToLower() != StatusFeedbackConst.DaXuLy.ToLower()
+              && statusFeedbackDto.Status.ToLower() != StatusFeedbackConst.DaXuLy.ToLower()
                 )
             {
                 rs.IsError = true;
@@ -69,8 +69,13 @@ namespace Ward.API.Controllers
                 rs.Status = 400;
                 return rs;
             }
-             rs = await _mediator.Send(new UpdateAdsStatusRequest { StatusFeedback = statusFeedbackDto });
+            rs = await _mediator.Send(new UpdateAdsStatusRequest { StatusFeedback = statusFeedbackDto });
             return rs;
+        }
+        [HttpGet("PushToGovInfor/{adsId}")]
+         public async Task<ActionResult<BaseResponse<bool>>> PushToGovInfor(int adsId)
+        {
+            return await _mediator.Send(new PushAdsToGOVInforRequest { AdsId = adsId });
         }
     }
 }
