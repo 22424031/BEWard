@@ -11,13 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ward.Domain", "Ward.Domain\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ward.Persistent", "Ward.Persistent\Ward.Persistent.csproj", "{F5CDD556-7C35-4DBD-B414-ACB85EF5AD66}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WardService", "WardService\WardService.csproj", "{B0D7A87B-3853-4B6E-98D3-588DF31DD284}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GOVInforService", "WardService\GOVInforService.csproj", "{B0D7A87B-3853-4B6E-98D3-588DF31DD284}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{995E9CD4-8002-4A7F-B306-243548AEED28}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMapService", "UserMapService\UserMapService.csproj", "{F30F3B72-A46B-4286-AEB4-D6EA67CC989F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailService", "MailService\MailService.csproj", "{80C930B7-C435-4F8F-B838-3C678CF1E9BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailService", "MailService\MailService.csproj", "{80C930B7-C435-4F8F-B838-3C678CF1E9BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

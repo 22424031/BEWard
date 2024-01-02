@@ -6,8 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using UserMapService;
 using Ward.Application;
 using Ward.Persistent;
-using Ward.Persistent;
-using WardService;
+using GOVInforService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.ConfigurePersistenceRegister(builder.Configuration);
 builder.Services.ConfigurateApplicationService();
-builder.Services.ConfigWardService(builder.Configuration);
+builder.Services.ConfigGOVInforService(builder.Configuration);
 builder.Services.ConfigUserMapService(builder.Configuration);
 builder.Services.ConfigMailService(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

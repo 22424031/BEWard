@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ward.Application.Dtos.Ads
 {
-    public class CreateAdsDto
+    public class PushAdsGovInforDto
     {
-     public int AdsId { get; set; }
+        public int AdsID { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Comment { get; set; }
@@ -22,11 +22,10 @@ namespace Ward.Application.Dtos.Ads
         public float Height { get; set; }
         public float Width { get; set; }
         public string SizeUnit { get; set; }
-        public List<string>? UrlImages { get; set; }
+        public string UrlImagesJson { get; set; }
         public string AdsAddress { get; set; }
         public decimal Lat { get; set; }
         public decimal Longt { get; set; }
         public string Status { get; set; }
-        public bool IsActive { get; set; }
     }
 }
