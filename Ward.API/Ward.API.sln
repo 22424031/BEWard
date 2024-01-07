@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMapService", "UserMapSe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailService", "MailService\MailService.csproj", "{80C930B7-C435-4F8F-B838-3C678CF1E9BF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMap.API", "..\..\UserMap\DemoSakila\DemoSakila\UserMap.API.csproj", "{6D242961-0DC0-4C6E-8B68-61573BCCF671}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{80C930B7-C435-4F8F-B838-3C678CF1E9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80C930B7-C435-4F8F-B838-3C678CF1E9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80C930B7-C435-4F8F-B838-3C678CF1E9BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D242961-0DC0-4C6E-8B68-61573BCCF671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D242961-0DC0-4C6E-8B68-61573BCCF671}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D242961-0DC0-4C6E-8B68-61573BCCF671}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D242961-0DC0-4C6E-8B68-61573BCCF671}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
